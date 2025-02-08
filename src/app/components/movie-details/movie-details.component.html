@@ -1,0 +1,28 @@
+<div class="container my-4">
+    <div class="card shadow">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="movie?.poster || 'assets/default-poster.jpg'"
+            class="img-fluid rounded-start"
+            [alt]="movie?.title + ' Poster'"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie?.title }} ({{ movie?.year }})</h5>
+            <p class="card-text"><strong>Genre:</strong> {{ movie?.genre }}</p>
+            <p class="card-text"><strong>Director:</strong> {{ movie?.director }}</p>
+            <p class="card-text"><strong>Actors:</strong> {{ movie?.actors }}</p>
+            <p class="card-text"><strong>Country:</strong> {{ movie?.country }}</p>
+            <p class="card-text"><strong>Language:</strong> {{ movie?.language }}</p>
+            <p class="card-text"><strong>Runtime:</strong> {{ movie?.runtime }}</p>
+            <p class="card-text"><strong>Rated:</strong> {{ movie?.rated }}</p>
+            <p class="card-text"><strong>IMDb Rating:</strong> {{ movie?.imdbRating }} <i class="star fa-solid fa-star" style="color: #ffd700;"></i>
+            </p>
+            <p class="card-text"><strong>Plot:</strong> {{ movie?.plot }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
