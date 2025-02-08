@@ -1,0 +1,87 @@
+<div class="admin-dashboard">
+  <div class="container mt-4">
+    <h2 class="mb-4">Movie Search</h2>
+
+    <!-- Search Section -->
+    <div class="input-group mb-4">
+      <input type="text" 
+             class="form-control" 
+             [(ngModel)]="searchTerm"
+             (keyup.enter)="searchMovies()"
+             placeholder="Search movies by title...">
+      <button class="btn btn-primary" 
+              (click)="searchMovies()"
+              [disabled]="isLoading || !searchTerm.trim()">
+        {{ isLoading ? 'Searching...' : 'Search' }}
+      </button>
+    </div>
+
+
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="text-center my-5">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3">Loading movies...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Movies Grid -->
+    <div *ngIf="movies.length > 0" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <div *ngFor="let movie of movies" class="col">
+        <div class="card h-100 shadow-sm">
+          <img [src]="movie.Poster !== 'N/A' ? movie.Poster : 'assets/default-poster.jpg'"
+               class="card-img-top"
+               [alt]="movie.Title + ' poster'"
+               style="height: 400px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.Title }}</h5>
+            <div class="movie-meta">
+              <span class="badge bg-primary">{{ movie.Year }}</span>
+              <span class="badge bg-secondary ms-2">{{ movie.Type | titlecase }}</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <button class="btn btn-outline-primary btn-sm w-100"
+                   >
+                   <!--  [routerLink]="['/admin/movies', movie.imdbID]" -->
+              Manage Movie
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="!isLoading && movies.length === 0 && !errorMessage" class="alert alert-warning mt-4">
+      No movies found
+    </div>
+
+    <!-- Pagination -->
+    <nav *ngIf="totalPages > 1" class="mt-5">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="previousPage()">Previous</a>
+        </li>
+        
+        <!-- Current Page Info -->
+        <li class="page-item disabled">
+          <span class="page-link">
+            Page {{ currentPage }} of {{ totalPages }}
+            <span *ngIf="isDefaultView" class="ms-2">(Popular Movies)</span>
+            <span *ngIf="!isDefaultView" class="ms-2">(Search Results)</span>
+          </span>
+        </li>
+        
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" (click)="nextPage()">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
