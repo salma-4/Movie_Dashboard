@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="http://localhost:4200/admin/admin-dashboard/allMovies" >ADMIN DASHBOARD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/admin-dashboard/allMovies">All Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin-dashboard">Your Movies</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container my-4">
+    <div class="card shadow">
+      <div class="row g-0">
+        <div class="img col-md-4">
+          <img
+            [src]="movie?.Poster || 'assets/default-poster.jpg'"
+            class="img-fluid rounded-start"
+            [alt]="movie?.Title + ' Poster'"
+          />
+          <br>
+          <p class="card-text"><strong>IMDb Rating:</strong> {{ movie?.imdbRating }} <i class="star fa-solid fa-star" style="color: #ffd700;"></i></p>
+        </div>
+        
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge bg-primary">{{ movie?.Title }} </span><span class="badge bg-secondary ms-2">({{ movie?.Year }})</span></h5>
+            <p class="card-text"><strong>Genre:</strong> {{ movie?.Genre }}</p>
+            <p class="card-text"><strong>Director:</strong> {{ movie?.Director }}</p>
+            <p class="card-text"><strong>Actors:</strong> {{ movie?.Actors }}</p>
+            <p class="card-text"><strong>Country:</strong> {{ movie?.Country }}</p>
+            <p class="card-text"><strong>Language:</strong> {{ movie?.Language }}</p>
+            <p class="card-text"><strong>Runtime:</strong> {{ movie?.Runtime }}</p>
+            <p class="card-text"><strong>Rated:</strong> {{ movie?.Rated }}</p>
+            <p class="card-text"><strong>Released:</strong> {{ movie?.Released }} </p>
+            <p class="card-text"><strong>Awards:</strong> {{ movie?.Awards }} </p>
+            <p class="card-text"><strong>Type:</strong> {{ movie?.Type }} </p>
+            <p class="card-text"><strong>BoxOffice:</strong> {{ movie?.BoxOffice }}</p>
+            <p class="card-text"><strong>Production:</strong> {{ movie?.Production }} </p>
+            <p class="card-text"><strong>Plot:</strong> {{ movie?.Plot }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary " (click)="goBack()">
+       Back
+      </button>
+      <button class="btn btn-success" (click)="addMovie()">ADD MOVIE</button>
+      </div>
+    </div>
+    </div>

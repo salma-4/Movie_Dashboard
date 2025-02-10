@@ -53,11 +53,6 @@ export class OmdbComponent implements OnInit{
     }
   }
 
-  // Load movies with search term
-  private loadSearchedMovies(): void {
-    this.isLoading = true;
-    this.router.navigate(['/search-movie', this.searchTerm]);
-  }
 
   private handleResponse(response: any): void {
     if (response.Response === 'True') {
@@ -79,15 +74,15 @@ export class OmdbComponent implements OnInit{
     this.isLoading = false;
     console.error(error);
   }
+  // Load movies with search term
+  private loadSearchedMovies(): void {
+    this.isLoading = true;
+    this.router.navigate(['/search-movie', this.searchTerm]);
+  }
 
-
-  // showDetails(imdbId: string): void {
-  //   this.omdbService.getMovieDetails(imdbId)
-  //     .subscribe(details => {
-  //       // Handle movie details display
-  //       console.log('Movie details:', details);
-  //     });
-  // }
+  showDetails(imdbId: string): void {
+    this.router.navigate(['/admin/movies', imdbId]);
+  }
 
   previousPage(): void {
     if (this.currentPage > 1) {

@@ -8,7 +8,7 @@ import { MovieDetails } from '../../model/movie-details.model';
   providedIn: 'root' // service is globally available
 })
 export class MovieService {
-  private apiUrl = 'http://localhost:8081/dashboard-api/v1/user/movies';
+  private apiUrl = 'http://localhost:8081/dashboard-api/v1/admin/movies';
   private static readonly STATIC_TOKEN =localStorage.getItem('token'); // Retrieve token from local storage
 
   constructor(private http: HttpClient) {}
@@ -17,25 +17,23 @@ export class MovieService {
     return new HttpHeaders({
       Authorization: `Bearer ${MovieService.STATIC_TOKEN}`
     });
+
+}
+
+ addMovie(movie: Movie): Observable<any> {
+    return this.http.post<Movie>(this.apiUrl, movie,{headers:this.getHeaders()});
   }
 
-  getMovies(page: number, size: number): Observable<MovieResponse> {
+  getAllMovies(page: number, size: number) : Observable<MovieResponse>{
     return this.http.get<MovieResponse>(
       `${this.apiUrl}?page=${page}&size=${size}`,
-      { headers: this.getHeaders() }
-    );
+      {headers:this.getHeaders()});
   }
-   
-      // Fetch details for a single movie 
-      getMovieDetails(id: number): Observable<MovieDetails> {
-        return this.http.get<MovieDetails>(`${this.apiUrl}/${id}`
-          ,{ headers: this.getHeaders() }
-           ).pipe(
-          catchError((error) => {
-            console.error('API Error:', error);
-            return throwError(() => new Error('Failed to fetch movie details'));
-          })
-        );
-      }
-  //TODO search by title 
+  
+  deleteMovie(movieId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${movieId}`, { headers: this.getHeaders() });
+  }
+  
+
+
 }

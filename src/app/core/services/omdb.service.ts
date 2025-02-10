@@ -37,16 +37,16 @@ getAllMovies(page: number = 1): Observable<OmdbSearchResponse> {
     );
   }
 
-//   // Get movie details by IMDB ID
-//   getMovieDetails(imdbId: string): Observable<OmdbMovieDetails> {
-//     const params = new HttpParams()
-//       .set('apikey', this.apiKey)
-//       .set('i', imdbId);
+  // Get movie details by IMDB ID
+  getMovieDetails(imdbId: string): Observable<OmdbMovieDetails> {
+    const params = new HttpParams()
+      .set('apikey', this.apiKey)
+      .set('i', imdbId);
 
-//     return this.http.get<OmdbMovieDetails>(this.apiUrl, { params }).pipe(
-//       catchError(this.handleError)
-//     );
-//   }
+    return this.http.get<OmdbMovieDetails>(this.apiUrl, { params }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   // Handle API errors
   private handleError(error: any) {

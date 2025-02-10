@@ -1,34 +1,36 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app.routes';  // Import the fixed routing module
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
+
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { OmdbComponent } from './components/admin/omdb/omdb.component';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-const routes: Routes = [
-  {
-     path: 'user-dashboard', 
-     component: UserDashboardComponent },
-  {
-    path:'admin-dashboard'
-    ,component:OmdbComponent},
-  // { path: '**', redirectTo: 'user-dashboard' } // Redirect unknown routes
-];
+import { SearchedMovieComponent } from './components/admin/searched-movie/searched-movie.component';
 
 @NgModule({
-  declarations: [UserDashboardComponent,OmdbComponent],
-  imports: [RouterModule.forRoot(routes), 
-    HttpClientModule,CommonModule,FontAwesomeModule,BrowserModule,
-    FormsModule],
-  exports: [RouterModule,UserDashboardComponent,OmdbComponent]
+  declarations: [
+    UserDashboardComponent,
+    OmdbComponent,
+    SearchedMovieComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule, 
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    FontAwesomeModule
+  ],
+  bootstrap: [UserDashboardComponent] 
 })
-export class AppRoutingModule {
+
+export class AppModule {
   constructor(library: FaIconLibrary) {
-    // Add icons you need
     library.addIcons(solidStar);
   }
 }
-

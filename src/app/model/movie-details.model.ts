@@ -1,6 +1,6 @@
 export interface MovieDetails{
     id:number;
-    imdbId:string;
+    imdbID:string;
     title:string;
     year:string;
     rated:string;

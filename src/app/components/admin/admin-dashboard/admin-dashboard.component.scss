@@ -1,0 +1,124 @@
+// Admin Dashboard Component Styles
+
+.admin-dashboard {
+  .container {
+    margin-top: 20px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .card {
+    transition: transform 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 15px;
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #555;
+      }
+    }
+
+    .card-footer {
+      background-color: #f8f9fa;
+      border-top: 1px solid #ddd;
+      padding: 10px 15px;
+      text-align: center;
+
+      button {
+        background-color: #f05f5f;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #bd2626;
+        }
+      }
+    }
+  }
+
+  .alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: #0056b3;
+      }
+    }
+
+    span {
+      margin: 0 10px;
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+}
+.navbar {
+  padding: 0.5rem 1rem;
+  min-height: 50px; 
+
+  .navbar-brand {
+    font-size: 1.2rem; 
+    padding: 0.25rem 0;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        font-size: 0.9rem; 
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-.container {
-    margin-top: 80px;
+.searched-movie{.container {
+  margin-top: 10px;
     box-shadow: 2px 2px 10px rgba(240, 234, 234, 0.2);
   
   }
@@ -9,7 +9,6 @@
     border-radius: 10px;
   
   }
-  
   .card-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -20,6 +19,7 @@
   }
   
   .img-fluid {
+    
     border-radius: 10px 0 0 10px;
   }
   .star {
@@ -34,3 +34,22 @@
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
   }
+}
+.navbar {
+  padding: 0.5rem 1rem;
+  min-height: 50px; 
+
+  .navbar-brand {
+    font-size: 1.2rem; 
+    padding: 0.25rem 0;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        font-size: 0.9rem; 
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
