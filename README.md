@@ -1,59 +1,53 @@
-# MovieDashboard
+# Movie Dashboard (Angular 17) 
+[Backend-API](https://github.com/salma-4/Movie_API)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+This project is a **Movie Dashboard** built with **Angular 17**. It includes two dashboards:
+1. **Integrate With OMDb API**: for browsing different movies
+2. **Admin Dashboard**: For managing movies (add, delete, view all movies).
+2. **User Dashboard**: For browsing and searching movies using the OMDB API.
 
-## Development server
+The application is integrated with the **OMDB API** to fetch movie details.
 
-To start a local development server, run:
+## Prerequisites
 
+Before running the project, ensure you have the following installed:
+
+1. **Node.js**: Download and install Node.js from [nodejs.org](https://nodejs.org/).
+2. **Angular CLI** (v17+): Install globally via:
+  ```bash
+  npm install -g @angular/cli
+  ```
+3. **OMDB API Key**: Get a free API key from [OMDb API](https://www.omdbapi.com/apikey.aspx)
+4.  **Clone the repository**: 
 ```bash
+git clone https://github.com/salma-4/Movie_Dashboard
+ ```
+5. **Install dependencies and run **: 
+``` bash 
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### **Admin Dashboard**
+- **View All Movies**: Display a list of all movies (added in database or from OMDb).
+- **Search For movie**: using omdb .
+- **Add New Movies**: Add new movies to the database.
+- **Delete Movies**: Remove movies from the database.
+- **Pagination**: Navigate through the list of movies using pagination.
+- **View Movie Details**: Display detailed information about a movie (title, year, genre, poster, etc.).
 
-```bash
-ng generate component component-name
-```
+### **User Dashboard**
+- **Search Movies**: Search for movies using the OMDB API.
+- **View Movie Details**: Display detailed information about a movie (title, year, genre, poster, etc.).
+- **Pagination**: Navigate through the list of movies using pagination.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### **Authentication**
+- **Role-Based Access**:
+  - Admins can access the **Admin Dashboard**.
+  - Users can access the **User Dashboard**.
+- **Login/Registration**: Users can register and log in to access their respective dashboards.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
